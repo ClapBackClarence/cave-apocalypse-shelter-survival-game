@@ -1,0 +1,36 @@
+{
+    "name": "Cave Apocalypse Shelter Survival Game",
+    "description": "",
+    "dependencies": {
+        "device": "*",
+        "animation": "*",
+        "tilemaps": "github:microsoft/pxt-tilemaps#v1.12.0",
+        "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.1",
+        "pxt-button-combos": "github:jwunderl/pxt-button-combos#v0.0.24",
+        "Color Fading": "github:jwunderl/pxt-color#v0.2.1",
+        "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.2.4",
+        "arcade-text": "github:pelikhan/arcade-image-text#v0.0.4",
+        "pxt-lantern": "github:riknoll/pxt-lantern#v0.1.2"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "assets.json",
+        "tilemap.g.jres",
+        "tilemap.g.ts",
+        "images.g.jres",
+        "images.g.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "1.6.24",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "blocksprj"
+}
