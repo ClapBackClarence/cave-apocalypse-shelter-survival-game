@@ -133,6 +133,60 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     currentTile = tiles.locationOfSprite(Survivor)
     if (tiles.tileIs(currentTile, assets.tile`myTile7`)) {
         tiles.setTileAt(currentTile, assets.tile`myTile9`)
+        Gold = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Player)
+        Iron = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Player)
+        Copper = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Player)
     }
 })
 scene.onOverlapTile(SpriteKind.Player, tiles.util.door0, function (sprite, location) {
@@ -452,6 +506,9 @@ let WalkingRight: animation.Animation = null
 let WalkingLeft: animation.Animation = null
 let Idle: animation.Animation = null
 let selectorIndex = 0
+let Copper: Sprite = null
+let Iron: Sprite = null
+let Gold: Sprite = null
 let currentTile: tiles.Location = null
 let FireIdle: Sprite = null
 let inventoryVisible = false
@@ -589,6 +646,7 @@ let barLabels = sprites.create(img`
     `, SpriteKind.Player)
 barLabels.setFlag(SpriteFlag.RelativeToCamera, true)
 barLabels.setPosition(10, scene.screenHeight() - 7)
+lantern.startLanternEffect(Survivor)
 game.onUpdate(function () {
     if (Survivor.vx > 0) {
         animation.setAction(Survivor, ActionKind.WalkingRight)
@@ -610,6 +668,7 @@ game.onUpdate(function () {
         game.splash("You're not immortal! Try finding some mushrooms.")
         game.over(false)
     }
+    lantern.setLightBandWidth(17.5)
 })
 game.onUpdateInterval(2000, function () {
     msuhroom = sprites.create(img`
